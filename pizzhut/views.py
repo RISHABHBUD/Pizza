@@ -1,15 +1,21 @@
-from pizzhut.form import PizzaShape
-from pizzhut.models import Pizza
+from .models import Order, Pizza
 from django.shortcuts import render
 
-# Create your views here.
 def home(request):
+    return render(request,"pizzhut/home.html")
 
-    if request.method == "POST":
-        form=PizzaShape(data=request.POST,files=request.FILES)
-        if form.is_valid():
-            form.save()
-    else:
-        form=PizzaShape()
-    img=Pizza.objects.all()
-    return render(request,"pizzhut/home.html",{"img":img,"form":form})
+
+def pizzalist(request):
+    piz = Pizza.objects.all()
+    return render(request,'pizzhut/pizzalist.html',{'piz':piz})
+
+def pizzaview(request,myid):
+    if request.method=="POST":
+        size = request.POST.get('pizza_size','')
+        shape = request.POST.get('pizza_shape','')
+
+        ord = Order(size=size,shape=shape)
+        ord.save()
+    pizview = Pizza.objects.filter(id=myid)
+
+    return render(request,'pizzhut/pizzaview.html',{'pizview':pizview})

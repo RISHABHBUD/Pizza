@@ -4,8 +4,9 @@ from . import views
 
 urlpatterns = [
 
-    path("home/",views.home,name="home"),
-    path("home/pizzalist",views.pizzalist,name="pizzalist"),
-    path("home/pizzalist/<int:myid>",views.pizzaview,name="pizzaview"),
+    path("",views.home,name="home"),
+    path("pizzalist/",views.pizzalist,name="pizzalist"),
+    path("pizzalist/<int:myid>",views.pizzaview,name="pizzaview"),
+    path("search/",views.search,name="search"),
 ]
 

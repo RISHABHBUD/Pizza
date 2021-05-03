@@ -11,15 +11,15 @@ class Pizza(models.Model):
     shape2 = models.CharField(max_length=50,default="",blank=True)
 
 
-    size1 = models.CharField(max_length=50,default="",blank=True)
+    size1 = models.CharField(max_length=50,default="")
     size2 = models.CharField(max_length=50,default="",blank=True)
     size3= models.CharField(max_length=50,default="",blank=True)
     size4 = models.CharField(max_length=50,default="",blank=True)
     size5 = models.CharField(max_length=50,default="",blank=True)
     size6 = models.CharField(max_length=50,default="",blank=True)
 
-    toppings1 = models.CharField(max_length=15,blank=True)
-    toppings2 = models.CharField(max_length=15,blank=True)
+    toppings1 = models.CharField(max_length=15)
+    toppings2 = models.CharField(max_length=15)
     toppings3 = models.CharField(max_length=15,blank=True)
     toppings4 = models.CharField(max_length=15,blank=True)
     toppings5 = models.CharField(max_length=15,blank=True)

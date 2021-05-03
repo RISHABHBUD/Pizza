@@ -11,6 +11,17 @@
     <title>Hello, world!</title>
   </head>
   <body>
+    <form action="/search" method="GET">
+      <div class="fields">
+    <div class="form-group" style="width:200px">
+      <input type="text" name="search" class="form-control" placeholder="Search Pizza">
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Search" class="btn btn-success ">
+    </div>
+  </div>
+</form>
     <h1>Pizza List</h1>
      {% for i in piz reversed %}
      <div class="card" style="width: 18rem;">
@@ -19,7 +30,7 @@
           <!-- <li class="list-group-item"></li> -->
           <!-- <li class="list-group-item"></li> -->
         </ul>
-        <a  href="pizzalist/{{i.id}}" class=" btn btn-success" >view details</a>
+        <a  href=" {{i.id}}" class=" btn btn-success" >view details</a>
       </div>
 
 

@@ -11,6 +11,18 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.cvalue').click(function(){
+                var txt="";
+                $('.cvalue:checked').each(function(){
+                    txt+=$(this).val()+","
+                });
+                $('#cvalues').val(txt);
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -18,6 +30,10 @@
     {% for i in pizview %}
     <form action="#" method="POST">
         {% csrf_token %}
+        <!-- <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" name = "name" value="{{current_name}}">
+          </div> -->
         <label for="cars">Choose shape of pizza :</label>
         <select name="pizza_shape">
             <option value="{{i.shape1}}">{{i.shape1}}</option>
@@ -26,31 +42,196 @@
         <label for="cars">Choose size of pizza :</label>
         <select name="pizza_size">
 
+            {% if i.size1 %}
             <option value="{{i.size1}}">{{i.size1}}</option>
-            {% if  size2 is none %}
+            {% endif %}
+            {% if i.size2 %}
             <option value="{{i.size2}}">{{i.size2}}</option>
             {% endif %}
-            {% if not size3 is none %}
+            {% if i.size3  %}
             <option value="{{i.size3}}">{{i.size3}}</option>
             {% endif %}
-            {% if  size4 != ' ' %}
+            {% if i.size4 %}
             <option value="{{i.size4}}">{{i.size4}}</option>
             {% endif %}
-            {% if  size5 is none %}
+            {% if i.size5%}
             <option value="{{i.size5}}">{{i.size5}}</option>
             {% endif %}
-            {% if not size6 is none %}
+            {% if i.size6 %}
             <option value="{{i.size6}}">{{i.size6}}</option>
             {% endif %}
         </select>
         <br><br>
+        {% if i.toppings1 %}
+        <input type="checkbox"class="cvalue" value="{{i.toppings1}}">
+        <label >{{i.toppings1}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings2 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings2}}">
+        <label>{{i.toppings2}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings3 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings3}}">
+        <label>{{i.toppings3}}</label><br>
+        {% endif %}
+        {% if i.toppings4 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings4}}">
+        <label>{{i.toppings4}}</label><br>
+        {% endif %}
+        {% if i.toppings5 %}
+        <input type="checkbox"class="cvalue" value="{{i.toppings5}}">
+        <label >{{i.toppings5}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings6 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings6}}">
+        <label>{{i.toppings6}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings7 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings7}}">
+        <label>{{i.toppings7}}</label><br>
+        {% endif %}
+        {% if i.toppings8 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings8}}">
+        <label>{{i.toppings8}}</label><br>
+        {% endif %}
+        {% if i.toppings9 %}
+        <input type="checkbox"class="cvalue" value="{{i.toppings9}}">
+        <label >{{i.toppings9}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings10 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings10}}">
+        <label>{{i.toppings10}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings11 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings11}}">
+        <label>{{i.toppings11}}</label><br>
+        {% endif %}
+        {% if i.toppings12 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings12}}">
+        <label>{{i.toppings12}}</label><br>
+        {% endif %}
+        {% if i.toppings13 %}
+        <input type="checkbox"class="cvalue" value="{{i.toppings13}}">
+        <label >{{i.toppings13}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings14 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings14}}">
+        <label>{{i.toppings14}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings15 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings15}}">
+        <label>{{i.toppings15}}</label><br>
+        {% endif %}
+        {% if i.toppings16 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings16}}">
+        <label>{{i.toppings16}}</label><br>
+        {% endif %}
+        {% if i.toppings17 %}
+        <input type="checkbox"class="cvalue" value="{{i.toppings17}}">
+        <label >{{i.toppings17}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings18 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings18}}">
+        <label>{{i.toppings18}}</label><br>
+        {% endif %}
+        
+        {% if i.toppings19 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings19}}">
+        <label>{{i.toppings19}}</label><br>
+        {% endif %}
+        {% if i.toppings20 %}
+        <input type="checkbox" class="cvalue" value="{{i.toppings20}}">
+        <label>{{i.toppings20}}</label><br>
+        {% endif %}
+        
+        
+        
+        <input type="text" name="toppings" id="cvalues" value="toppings">
+
+
+
+
         <input type="submit" value="Submit">
     </form>
     {%endfor%}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
-
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+    
 </body>
 
 </html>
+<!-- <label for="cars">Choose toppings of pizza :</label>
+<select name="toppings">
+
+    {% if i.toppings1 %}
+    <option value="{{i.toppings1}}">{{i.toppings1}}</option>
+    {% endif %}
+    {% if i.toppings2 %}
+    <option value="{{i.toppings2}}">{{i.toppings2}}</option>
+    {% endif %}
+    {% if i.toppings3  %}
+    <option value="{{i.toppings3}}">{{i.toppings3}}</option>
+    {% endif %}
+    {% if i.toppings4 %}
+    <option value="{{i.toppings4}}">{{i.toppings4}}</option>
+    {% endif %}
+    {% if i.toppings5%}
+    <option value="{{i.toppings5}}">{{i.toppings5}}</option>
+    {% endif %}
+    {% if i.toppings6 %}
+    <option value="{{i.toppings6}}">{{itoppingse6}}</option>
+    {% endif %}
+    {% if i.toppings7 %}
+    <option value="{{i.toppings7}}">{{i.toppings7}}</option>
+    {% endif %}
+    {% if i.toppings8 %}
+    <option value="{{i.toppings8}}">{{i.toppings8}}</option>
+    {% endif %}
+    {% if i.toppings9  %}
+    <option value="{{i.toppings9}}">{{i.toppings9}}</option>
+    {% endif %}
+    {% if i.toppings10 %}
+    <option value="{{i.toppings10}}">{{i.toppings10}}</option>
+    {% endif %}
+    {% if i.toppings11%}
+    <option value="{{i.toppings11}}">{{i.toppings11}}</option>
+    {% endif %}
+    {% if i.toppings12 %}
+    <option value="{{i.toppings12}}">{{itoppingse12}}</option>
+    {% endif %}
+    {% if i.toppings13 %}
+    <option value="{{i.toppings13}}">{{itoppingse13}}</option>
+    {% endif %}
+    {% if i.toppings14 %}
+    <option value="{{i.toppings14}}">{{itoppingse14}}</option>
+    {% endif %}
+    {% if i.toppings15 %}
+    <option value="{{i.toppings15}}">{{itoppingse15}}</option>
+    {% endif %}
+    {% if i.toppings16 %}
+    <option value="{{i.toppings16}}">{{itoppingse16}}</option>
+    {% endif %}
+    {% if i.toppings17 %}
+    <option value="{{i.toppings17}}">{{itoppingse17}}</option>
+    {% endif %}
+    {% if i.toppings18 %}
+    <option value="{{i.toppings18}}">{{itoppingse18}}</option>
+    {% endif %}
+    {% if i.toppings19 %}
+    <option value="{{i.toppings19}}">{{itoppingse19}}</option>
+    {% endif %}
+    {% if i.toppings20 %}
+    <option value="{{i.toppings20}}">{{itoppingse20}}</option>
+    {% endif %}
+</select>
+<br><br> -->

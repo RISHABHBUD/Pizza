@@ -13,8 +13,9 @@ def pizzaview(request,myid):
     if request.method=="POST":
         size = request.POST.get('pizza_size','')
         shape = request.POST.get('pizza_shape','')
+        toppings = request.POST.get('toppings','')
 
-        ord = Order(size=size,shape=shape)
+        ord = Order(size=size,shape=shape,toppings=toppings)
         ord.save()
     pizview = Pizza.objects.filter(id=myid)
 

@@ -1,0 +1,22 @@
+1. On running the server using command (python manage.py runserver) we first reach to the home page.
+2. Where we have to choose between Adding a New Pizza(via admin) or Booking a New Pizza.
+
+Adding a New Pizza:
+1. Click on Admin button on home page.
+2. On clilcking we reach to the admin panel, after completing login through superuser[username = vinayak, Password= djangooo].
+3. Click on Pizza table and then click on Add Pizza button.
+4. There we can add a pizza by filling the form that asks for Name, two types of shapes, three types of sizes and six types of toppings.That
+   can be named as anything that user wants. And can be changed at any point of time.
+5.Pizza created, is added into the Pizza table in the MongoDB database named as PizzaProject.
+
+Booking a New Pizza:
+1. Click on Pizzas button on home page.
+2. We reach to the list of all the Pizzas created by admin (in the above steps).
+3. There is a filter button at the top right in the navbar where we can find our desired Pizza.
+4. In the list click on View Details button of any Pizza that we want to book.
+5. There we have options to select SHAPE, SIZE, TOPPINGS. (As creataed by the admin while creating the Pizza.)
+6. Order details are added to orders table in the MngoDB Databae.
+
+Databse:
+MongoDB database is used and the database is named as PizzaProject. One might need to create there own MongoDB database on cloning this 
+Project with the same name (PizzaProject) as named in Settings.py file in their local machine. 

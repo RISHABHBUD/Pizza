@@ -1,5 +1,6 @@
+from django.db.models.query import RawQuerySet
 from .models import Order, Pizza
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 def home(request):
     return render(request,"pizzhut/home.html")
@@ -18,9 +19,12 @@ def pizzaview(request,myid):
         size = request.POST.get('pizza_size','')
         shape = request.POST.get('pizza_shape','')
         toppings = request.POST.get('toppings','')
-
         ord = Order(size=size,shape=shape,toppings=toppings)
         ord.save()
     pizview = Pizza.objects.filter(id=myid)
 
     return render(request,'pizzhut/pizzaview.html',{'pizview':pizview})
+
+def checkout(request,myid):
+    check = Order.objects.filter(id=myid)
+    return render(request,"pizzhut/checkout.html",{'check':check[0]})

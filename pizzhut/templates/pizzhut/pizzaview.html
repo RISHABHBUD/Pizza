@@ -23,23 +23,33 @@
             });
         });
     </script>
+<style>
+    h2{
+        font-size: 60px;
+        color: green;
+        text-decoration: double;
+        font-weight: 800;
+        font-family: 'Times New Roman', Times, serif;    }
+
+.adjust
+{
+margin-left: 40px;
+}
+</style>
 </head>
 
 <body>
-    <h2>Order pizza here</h2>
+    <h2>Take Your Order Here</h2>
     {% for i in pizview %}
     <form action="#" method="POST">
         {% csrf_token %}
-        <!-- <div class="mb-3">
-            <label>Name</label>
-            <input type="text" class="form-control" name = "name" value="{{current_name}}">
-          </div> -->
-        <label for="cars">Choose shape of pizza :</label>
-        <select name="pizza_shape">
+
+        <label for="cars" class="adjust" ><strong>Choose shape of pizza : </strong></label>
+        <select name="pizza_shape"  >
             <option value="{{i.shape1}}">{{i.shape1}}</option>
             <option value="{{i.shape2}}">{{i.shape2}}</option>
-        </select>
-        <label for="cars">Choose size of pizza :</label>
+        </select><br><br>
+        <label for="cars" class="adjust"><strong>Choose size of pizza : </strong></label>
         <select name="pizza_size">
 
             {% if i.size1 %}
@@ -51,121 +61,48 @@
             {% if i.size3  %}
             <option value="{{i.size3}}">{{i.size3}}</option>
             {% endif %}
-            {% if i.size4 %}
-            <option value="{{i.size4}}">{{i.size4}}</option>
-            {% endif %}
-            {% if i.size5%}
-            <option value="{{i.size5}}">{{i.size5}}</option>
-            {% endif %}
-            {% if i.size6 %}
-            <option value="{{i.size6}}">{{i.size6}}</option>
-            {% endif %}
+
         </select>
         <br><br>
+
+        <p class="adjust"><strong>Add Toppings in Your Pizza</strong> </p>
         {% if i.toppings1 %}
-        <input type="checkbox"class="cvalue" value="{{i.toppings1}}">
+        <input type="checkbox"class="cvalue adjust" value="{{i.toppings1}}">
         <label >{{i.toppings1}}</label><br>
         {% endif %}
-        
+
         {% if i.toppings2 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings2}}">
+        <input type="checkbox" class="cvalue adjust" value="{{i.toppings2}}">
         <label>{{i.toppings2}}</label><br>
         {% endif %}
-        
+
         {% if i.toppings3 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings3}}">
+        <input type="checkbox" class="cvalue adjust" value="{{i.toppings3}}">
         <label>{{i.toppings3}}</label><br>
         {% endif %}
         {% if i.toppings4 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings4}}">
+        <input type="checkbox" class="cvalue adjust" value="{{i.toppings4}}">
         <label>{{i.toppings4}}</label><br>
         {% endif %}
         {% if i.toppings5 %}
-        <input type="checkbox"class="cvalue" value="{{i.toppings5}}">
+        <input type="checkbox"class="cvalue adjust" value="{{i.toppings5}}">
         <label >{{i.toppings5}}</label><br>
         {% endif %}
-        
+
         {% if i.toppings6 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings6}}">
+        <input type="checkbox" class="cvalue adjust" value="{{i.toppings6}}">
         <label>{{i.toppings6}}</label><br>
         {% endif %}
+        <input type="text" name="toppings" class="adjust" id="cvalues" style="margin-top: 15px;" value=""><br><br>
+        <input type="submit" class="btn btn-success adjust" value="Submit">
         
-        {% if i.toppings7 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings7}}">
-        <label>{{i.toppings7}}</label><br>
-        {% endif %}
-        {% if i.toppings8 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings8}}">
-        <label>{{i.toppings8}}</label><br>
-        {% endif %}
-        {% if i.toppings9 %}
-        <input type="checkbox"class="cvalue" value="{{i.toppings9}}">
-        <label >{{i.toppings9}}</label><br>
-        {% endif %}
-        
-        {% if i.toppings10 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings10}}">
-        <label>{{i.toppings10}}</label><br>
-        {% endif %}
-        
-        {% if i.toppings11 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings11}}">
-        <label>{{i.toppings11}}</label><br>
-        {% endif %}
-        {% if i.toppings12 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings12}}">
-        <label>{{i.toppings12}}</label><br>
-        {% endif %}
-        {% if i.toppings13 %}
-        <input type="checkbox"class="cvalue" value="{{i.toppings13}}">
-        <label >{{i.toppings13}}</label><br>
-        {% endif %}
-        
-        {% if i.toppings14 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings14}}">
-        <label>{{i.toppings14}}</label><br>
-        {% endif %}
-        
-        {% if i.toppings15 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings15}}">
-        <label>{{i.toppings15}}</label><br>
-        {% endif %}
-        {% if i.toppings16 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings16}}">
-        <label>{{i.toppings16}}</label><br>
-        {% endif %}
-        {% if i.toppings17 %}
-        <input type="checkbox"class="cvalue" value="{{i.toppings17}}">
-        <label >{{i.toppings17}}</label><br>
-        {% endif %}
-        
-        {% if i.toppings18 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings18}}">
-        <label>{{i.toppings18}}</label><br>
-        {% endif %}
-        
-        {% if i.toppings19 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings19}}">
-        <label>{{i.toppings19}}</label><br>
-        {% endif %}
-        {% if i.toppings20 %}
-        <input type="checkbox" class="cvalue" value="{{i.toppings20}}">
-        <label>{{i.toppings20}}</label><br>
-        {% endif %}
-        
-        
-        
-        <input type="text" name="toppings" id="cvalues" value="">
-
-
-
-
-        <input type="submit" class = "btn btn-success" value="Submit">
     </form>
+    
     {%endfor%}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
+
     
 </body>
 
